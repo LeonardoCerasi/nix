@@ -101,7 +101,6 @@
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "it";
-    variant = "";
   };
 
   # Configure console keymap
@@ -137,26 +136,6 @@
     packages = with pkgs; [
       thunderbird
     ];
-  };
-
-  # timers
-  systemd.timers."nix-bkp" = {
-    wantedBy = [ "timers.target" ];
-    timerConfig = {
-      OnCalendar = "hourly";
-      Persistent = true;
-      Unit = "nix-bkp.service";
-    };
-  };
-
-  systemd.services."nix-bkp" = {
-    script = ''
-      cp /etc/nixos/configuration.nix /home/leonardo/dotfiles/.nix-bkp/
-    '';
-    serviceConfig = {
-      Type = "oneshot";
-      User = "root";
-    };
   };
 
   # Install firefox.

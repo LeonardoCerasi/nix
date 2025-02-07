@@ -15,6 +15,7 @@
     zathura
     xdotool # for zathura in neovim
     pstree # for zathura in neovim
+    qbittorrent
 
     # LSP
     lua-language-server
