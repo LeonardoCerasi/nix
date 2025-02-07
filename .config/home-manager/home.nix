@@ -7,6 +7,8 @@
   home. stateVersion = "24.11";
   programs.home-manager.enable = true;
 
+  nixpkgs.config.allowUnfree = true;
+
   # programs
 
   home.packages = with pkgs; [
@@ -16,6 +18,12 @@
     xdotool # for zathura in neovim
     pstree # for zathura in neovim
     qbittorrent
+    libreoffice-qt
+    hunspell
+    hunspellDicts.it_IT
+    hunspellDicts.en_US
+    hunspellDicts.fr-any
+    hunspellDicts.de_DE
 
     # LSP
     lua-language-server
