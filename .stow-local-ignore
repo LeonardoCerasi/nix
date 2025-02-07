@@ -1,0 +1,11 @@
+\.git
+\.gitignore
+\.gitmodules
+
+^/README.*
+^/LICENSE.*
+^/COPYING
+
+\.nix-bkp
+\.old
+\.config/nvim
