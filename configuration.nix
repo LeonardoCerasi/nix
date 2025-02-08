@@ -183,6 +183,10 @@
     fd
     xclip
     jdk
+    neofetch
+    lolcat
+    cowsay
+    fortune
   ];
 
   environment.variables = {
