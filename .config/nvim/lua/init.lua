@@ -21,3 +21,5 @@ require 'config.options'
 require 'config.keymaps'
 require 'config.autocmds'
 require 'config.health'
+
+require 'snippets.snippets'

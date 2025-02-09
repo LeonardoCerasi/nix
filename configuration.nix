@@ -21,22 +21,11 @@
 
     grub = {
       enable = true;
-      devices = [ "nodev" ];
+      device = "nodev";
       useOSProber = true;
       efiSupport = true;
-
-#      extraEntries = ''
-#        menuentry "Windows" {
-#	  insmod part_gpt
-#	  insmod fat
-#	  insmod searc_fs_uuid
-#	  insmod chain
-#	  search --fs-uuid --set=root F156-7327
-#	  chainloader /EFI/Microsoft/Boot/bootmgfw.efi
-#	}
-#     '';
     };
-   };
+  };
 
   networking.hostName = "desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

@@ -24,6 +24,8 @@
     hunspellDicts.en_US
     hunspellDicts.fr-any
     hunspellDicts.de_DE
+    insync
+    insync-nautilus
 
     # LSP
     lua-language-server
