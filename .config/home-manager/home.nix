@@ -26,6 +26,10 @@
     hunspellDicts.de_DE
     insync
     insync-nautilus
+    notesnook
+    obsidian
+    filezilla
+    discord
 
     # LSP
     lua-language-server
@@ -36,6 +40,11 @@
     texlab
     lua51Packages.lua-lsp
     ccls
+
+    # instant-reference tool
+    exiftool
+    zenity
+    xsel
   ];
 
   programs.neovim = {

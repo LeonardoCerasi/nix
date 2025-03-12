@@ -121,7 +121,7 @@
   users.users.leonardo = {
     isNormalUser = true;
     description = "Leonardo Cerasi";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "openrazer" ];
     packages = with pkgs; [
       thunderbird
     ];
@@ -176,6 +176,10 @@
     lolcat
     cowsay
     fortune
+    openrazer-daemon
+    polychromatic
+    libnotify
+    vivaldi
   ];
 
   environment.variables = {
@@ -189,7 +193,7 @@
     defaultEditor = true;
 
   };
-   
+
   # zsh
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
@@ -200,6 +204,9 @@
     enable = true;
     enableSSHSupport = true;
   };
+
+  # openrazer
+  hardware.openrazer.enable = true;
 
   # gnome
   environment.gnome.excludePackages = with pkgs; [
