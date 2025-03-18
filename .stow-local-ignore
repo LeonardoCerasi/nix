@@ -8,3 +8,9 @@
 
 \.nix-bkp
 \.old
+
+configuration.nix
+hardware-configuration.nix
+home.nix
+flake.nix
+flake.lock
