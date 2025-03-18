@@ -2,17 +2,15 @@
   description = "Leonardo Cerasi's nix configuration";
 
   inputs = {
-
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
-
   };
 
-  outputs = {
+  outputs = { self, nixpkgs, ... }:
+    let
+      lib = nixpkgs.lib;
+    in {
 
-    nixosConfigurations = { self, nixpkgs, ... }:
-      let
-        lib = nixpkgs.lib;
-      in {
+    nixosConfigurations = {
 
       desktop = lib.nixosSystem {
         system = "x86_64-linux";
