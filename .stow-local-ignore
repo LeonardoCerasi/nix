@@ -14,3 +14,4 @@ hardware-configuration.nix
 home.nix
 flake.nix
 flake.lock
+result
