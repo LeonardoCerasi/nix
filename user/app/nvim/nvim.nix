@@ -1,10 +1,6 @@
 { pkgs, ... }:
 
 {
-  environment.variables = {
-    EDITOR = "nvim";
-  };
-
   # required packages
   home.packages = with pkgs; [
     unzip

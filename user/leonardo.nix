@@ -3,6 +3,7 @@
 {
   imports = [
     ./app/nvim/nvim.nix
+    ./app/latex.nix
   ];
   home.username = "leonardo";
   home.homeDirectory = "/home/leonardo/";
@@ -18,10 +19,6 @@
     firefox
     vivaldi
     thunderbird
-    texlive.combined.scheme-full
-    zathura
-    xdotool # for zathura in neovim
-    pstree # for zathura in neovim
     qbittorrent
     libreoffice-qt
     hunspell
@@ -43,10 +40,5 @@
     nautilus
     spotify
     proton-pass
-
-    # instant-reference tool
-    exiftool
-    zenity
-    xsel
   ];
 }
