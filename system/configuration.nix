@@ -1,9 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    [
+      ./hardware/hardware-configuration.nix
+      ./hardware/nvidia.nix
     ];
 
   # Bootloader.
@@ -28,30 +29,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  # NVIDIA
-  hardware.graphics = {
-    enable = true;
-  };
-
-  services.xserver.videoDrivers = [ "nvidia" ];
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-
-    open = true;
-
-    nvidiaSettings = true;
-
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-
-    prime = {
-      nvidiaBusId = "PCI:11:0:0";
-    };
-  };
 
   # Set your time zone.
   time.timeZone = "Europe/Rome";
@@ -97,16 +74,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.leonardo = {
