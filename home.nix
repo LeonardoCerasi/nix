@@ -40,6 +40,7 @@
     texlab
     lua51Packages.lua-lsp
     ccls
+    nil
 
     # instant-reference tool
     exiftool

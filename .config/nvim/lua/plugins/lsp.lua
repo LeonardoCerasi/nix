@@ -35,3 +35,7 @@ lspconfig.lua_ls.setup {
   },
   capabilities = lsp_capabilities,
 }
+
+lspconfig.nil_ls.setup {
+  capabilities = lsp_capabilities,
+}
