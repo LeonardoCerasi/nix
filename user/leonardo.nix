@@ -4,7 +4,7 @@
   imports = [
     ./app/nvim/nvim.nix
     ./app/terminal/kitty/kitty.nix
-    ./app/browser/firefox/firefox.nix
+    ./app/browser/librewolf/librewolf.nix
     ./app/browser/vivaldi.nix
     ./app/latex.nix
     ./app/libreoffice.nix
