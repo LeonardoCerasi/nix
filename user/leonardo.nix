@@ -4,8 +4,11 @@
   imports = [
     ./app/nvim/nvim.nix
     ./app/terminal/kitty/kitty.nix
+    ./app/browser/firefox/firefox.nix
+    ./app/browser/vivaldi
     ./app/latex.nix
     ./app/libreoffice.nix
+    ./app/comms.nix
   ];
   home.username = "leonardo";
   home.homeDirectory = "/home/leonardo/";
@@ -18,8 +21,6 @@
   # programs
 
   home.packages = with pkgs; [
-    firefox
-    vivaldi
     thunderbird
     qbittorrent
     insync
@@ -27,10 +28,6 @@
     notesnook
     obsidian
     filezilla
-    discord
-
-    telegram-desktop
-    signal-desktop
     nautilus
     spotify
     proton-pass
