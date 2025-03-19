@@ -62,15 +62,6 @@
     libnotify # notifications (necessary)
 
     home-manager
-
-    gcc
-    clang
-    rustup
-    cmake
-    gnumake
-    python3
-    nodejs
-    jdk
   ];
 
   environment.variables = {
