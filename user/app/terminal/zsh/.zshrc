@@ -1,3 +1,8 @@
+export ZSH="/nix/store/$(ls /nix/store | grep oh-my-zsh | head -n 1)/share/oh-my-zsh"
+ZSH_THEME="robbyrussell" # Set your preferred theme
+plugins=(git sudo docker) # Add your preferred plugins
+source $ZSH/oh-my-zsh.sh
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
