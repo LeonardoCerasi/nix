@@ -6,9 +6,12 @@
       # HARDWARE
       ./hardware/hardware-configuration.nix
       ./hardware/nvidia.nix
+      ./hardware/audio.nix
 
       # SOFTWARE
       ./software/bootloader.nix
+      ./software/locale.nix
+      ./software/window-manager/x11.nix
     ];
 
   networking.hostName = "desktop";
@@ -20,48 +23,11 @@
   # Set your time zone.
   time.timeZone = "Europe/Rome";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "it_IT.UTF-8";
-    LC_IDENTIFICATION = "it_IT.UTF-8";
-    LC_MEASUREMENT = "it_IT.UTF-8";
-    LC_MONETARY = "it_IT.UTF-8";
-    LC_NAME = "it_IT.UTF-8";
-    LC_NUMERIC = "it_IT.UTF-8";
-    LC_PAPER = "it_IT.UTF-8";
-    LC_TELEPHONE = "it_IT.UTF-8";
-    LC_TIME = "it_IT.UTF-8";
-  };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "it";
-  };
-
   # Configure console keymap
   console.keyMap = "it2";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.leonardo = {
@@ -153,34 +119,6 @@
 
   # openrazer
   hardware.openrazer.enable = true;
-
-  # gnome
-  environment.gnome.excludePackages = with pkgs; [
-    baobab      # disk usage analyzer
-    cheese      # photo booth
-    eog         # image viewer
-    epiphany    # web browser
-    #gedit       # text editor
-    simple-scan # document scanner
-    totem       # video player
-    yelp        # help viewer
-    evince      # document viewer
-    file-roller # archive manager
-    geary       # email client
-    seahorse    # password manager
-    snapshot    # camera
-
-    #gnome-calculator
-    gnome-calendar gnome-characters gnome-clocks gnome-contacts
-    gnome-font-viewer gnome-logs gnome-maps gnome-music gnome-screenshot
-    gnome-system-monitor gnome-weather gnome-disk-utility gnome-connections
-    gnome-tour
-    gnome-console
-  ];
-
-  services.xserver.excludePackages = [ pkgs.xterm ]; 
-
-  services.udev.packages = with pkgs; [ gnome-settings-daemon ];
 
   # nix version
   system.stateVersion = "24.11";
