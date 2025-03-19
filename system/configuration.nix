@@ -44,6 +44,8 @@
     lshw # info about hardware
     libnotify # notifications (necessary)
 
+    home-manager
+
     gcc
     clang
     rustup
@@ -52,11 +54,6 @@
     python3
     nodejs
     jdk
-
-
-    home-manager
-
-    kitty
   ];
 
   environment.variables = {

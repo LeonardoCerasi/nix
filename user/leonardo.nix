@@ -3,6 +3,7 @@
 {
   imports = [
     ./app/nvim/nvim.nix
+    ./app/terminal/kitty.nix
     ./app/latex.nix
   ];
   home.username = "leonardo";
