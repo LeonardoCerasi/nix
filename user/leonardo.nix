@@ -3,7 +3,7 @@
 {
   imports = [
     ./app/nvim/nvim.nix
-    ./app/terminal/kitty.nix
+    ./app/terminal/kitty/kitty.nix
     ./app/latex.nix
   ];
   home.username = "leonardo";
@@ -33,8 +33,6 @@
     obsidian
     filezilla
     discord
-    openrazer-daemon
-    polychromatic
 
     telegram-desktop
     signal-desktop

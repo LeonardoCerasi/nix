@@ -7,6 +7,7 @@
       ./hardware/hardware-configuration.nix
       ./hardware/nvidia.nix
       ./hardware/audio.nix
+      ./hardware/keyboard.nix
 
       # <--- SOFTWARE --->
       ./software/bootloader.nix
@@ -15,6 +16,22 @@
       ./software/window-manager/x11.nix
       ./software/app/gnupg.nix
     ];
+
+  # nix version
+  system.stateVersion = "24.11";
+
+  # enable flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # automatic updates
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.dates = "weekly";
+
+  # automatic garbage cleanup
+  nix.gc.automatic = true;
+  nix.gc.dates = "daily";
+  nix.gc.options = "--delete-older-than 10d";
+  nix.settings.auto-optimise-store = true;
 
   # system settings
   networking.hostName = "desktop";
@@ -63,23 +80,4 @@
   # zsh
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
-
-  # openrazer
-  hardware.openrazer.enable = true;
-
-  # nix version
-  system.stateVersion = "24.11";
-
-  # enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # automatic updates
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.dates = "weekly";
-
-  # automatic garbage cleanup
-  nix.gc.automatic = true;
-  nix.gc.dates = "daily";
-  nix.gc.options = "--delete-older-than 10d";
-  nix.settings.auto-optimise-store = true;
 }
