@@ -53,13 +53,6 @@
     nodejs
     jdk
 
-    unzip
-    ripgrep
-    bc
-    fd
-    xclip
-    lua5_1
-    luarocks
 
     home-manager
 
@@ -67,14 +60,7 @@
   ];
 
   environment.variables = {
-    EDITOR = "nvim";
     _JAVA_OPTIONS= "-Dawt.useSystemAAFontSettings=lcd";
-  };
-
-  # neovim
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
   };
 
   # zsh
