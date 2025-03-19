@@ -1,30 +1,17 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports =
     [
+      # HARDWARE
       ./hardware/hardware-configuration.nix
       ./hardware/nvidia.nix
+
+      # SOFTWARE
+      ./software/bootloader.nix
     ];
 
-  # Bootloader.
-  boot.loader = {
-    systemd-boot.enable = false;
-
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot";
-    };
-
-    grub = {
-      enable = true;
-      device = "nodev";
-      useOSProber = true;
-      efiSupport = true;
-    };
-  };
-
-  networking.hostName = "desktop"; # Define your hostname.
+  networking.hostName = "desktop";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
