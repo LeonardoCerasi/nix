@@ -13,6 +13,7 @@
       ./software/locale.nix
       ./software/network.nix
       ./software/window-manager/x11.nix
+      ./software/app/gnupg.nix
     ];
 
   # system settings
@@ -30,8 +31,7 @@
     extraGroups = [ "networkmanager" "wheel" "openrazer" ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
+  # <--- PACKAGES --->
 
   nixpkgs.config.allowUnfree = true;
 
@@ -41,40 +41,29 @@
     git
     git-credential-manager
     stow
+    lshw # info about hardware
+    libnotify # notifications (necessary)
+
     gcc
     clang
     rustup
-    gnupg
-    pass
-    lshw
-    telegram-desktop
-    signal-desktop
-    pinentry
-    pinentry-curses
-    nautilus
-    os-prober
-    spotify
-    proton-pass
-    gnumake
     cmake
+    gnumake
+    python3
+    nodejs
+    jdk
+
     unzip
     ripgrep
-    home-manager
-    python3
     bc
-    lua5_1
-    luarocks
-    pinentry-gnome3
-    kitty
-    nodejs
     fd
     xclip
-    jdk
-    neofetch
-    lolcat
-    cowsay
-    fortune
-    libnotify
+    lua5_1
+    luarocks
+
+    home-manager
+
+    kitty
   ];
 
   environment.variables = {
@@ -91,13 +80,6 @@
   # zsh
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
-
-  # gpg
-  services.pcscd.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
 
   # openrazer
   hardware.openrazer.enable = true;

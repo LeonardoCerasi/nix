@@ -35,6 +35,11 @@
     openrazer-daemon
     polychromatic
 
+    telegram-desktop
+    signal-desktop
+    nautilus
+    spotify
+    proton-pass
 
     # LSP
     lua-language-server
