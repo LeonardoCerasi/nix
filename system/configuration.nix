@@ -3,52 +3,40 @@
 {
   imports =
     [
-      # HARDWARE
+      # <--- HARDWARE --->
       ./hardware/hardware-configuration.nix
       ./hardware/nvidia.nix
       ./hardware/audio.nix
 
-      # SOFTWARE
+      # <--- SOFTWARE --->
       ./software/bootloader.nix
       ./software/locale.nix
+      ./software/network.nix
       ./software/window-manager/x11.nix
     ];
 
+  # system settings
   networking.hostName = "desktop";
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Set your time zone.
   time.timeZone = "Europe/Rome";
-
-  # Configure console keymap
   console.keyMap = "it2";
 
-  # Enable CUPS to print documents.
+  # CUPS
   services.printing.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # user account
   users.users.leonardo = {
     isNormalUser = true;
     description = "Leonardo Cerasi";
     extraGroups = [ "networkmanager" "wheel" "openrazer" ];
-    packages = with pkgs; [
-      thunderbird
-    ];
   };
 
   # Install firefox.
   programs.firefox.enable = true;
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     wget
     git
     git-credential-manager
@@ -66,9 +54,7 @@
     nautilus
     os-prober
     spotify
-    gnomeExtensions.appindicator
     proton-pass
-    gnome-keyring
     gnumake
     cmake
     unzip
@@ -103,7 +89,6 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-
   };
 
   # zsh
