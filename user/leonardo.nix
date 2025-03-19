@@ -12,6 +12,8 @@
   # programs
 
   home.packages = with pkgs; [
+    firefox
+    vivaldi
     thunderbird
     texlive.combined.scheme-full
     zathura
@@ -30,6 +32,9 @@
     obsidian
     filezilla
     discord
+    openrazer-daemon
+    polychromatic
+
 
     # LSP
     lua-language-server

@@ -74,10 +74,7 @@
     lolcat
     cowsay
     fortune
-    openrazer-daemon
-    polychromatic
     libnotify
-    vivaldi
   ];
 
   environment.variables = {
