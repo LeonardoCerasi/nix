@@ -1,10 +1,11 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
     ./app/nvim/nvim.nix
     ./app/terminal/kitty/kitty.nix
     ./app/latex.nix
+    ./app/libreoffice.nix
   ];
   home.username = "leonardo";
   home.homeDirectory = "/home/leonardo/";
@@ -21,12 +22,6 @@
     vivaldi
     thunderbird
     qbittorrent
-    libreoffice-qt
-    hunspell
-    hunspellDicts.it_IT
-    hunspellDicts.en_US
-    hunspellDicts.fr-any
-    hunspellDicts.de_DE
     insync
     insync-nautilus
     notesnook
