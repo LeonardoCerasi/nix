@@ -3,6 +3,8 @@
 # Copyright: Skyler Lee, 2015
 
 # Colors: black|red|blue|green|yellow|magenta|cyan|white
+autoload -U colors && colors
+
 local black=$fg[black]
 local red=$fg[red]
 local blue=$fg[blue]
