@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+list='*.aux *.bbl *.bcf *.blg *.fdb_latexmk *.fls *.log *.out *.run.xml *.synctex.gz'
+
+for i in $list; do
+	rm $i
+done

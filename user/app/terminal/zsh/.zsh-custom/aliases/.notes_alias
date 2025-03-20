@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+alias elett='cd ~/notes/bachelor-2/semester-2/elettromagnetismo && ll'
+
+alias geogr='cd ~/notes/bachelor-3/semester-1/geometria-e-gruppi && ll'
+alias nucl='cd ~/notes/bachelor-3/semester-1/nucleare-e-subnucleare && ll'
+alias relg='cd ~/notes/bachelor-3/semester-1/relativita-generale && ll'
+alias quant='cd ~/notes/bachelor-3/semester-1/fisica-quantistica && ll'
+
+alias teor='cd ~/notes/bachelor-3/semester-2/teorica && ll'
+alias stru='cd ~/notes/bachelor-3/semester-2/struttura && ll'

@@ -20,7 +20,9 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # programs
+  # scripts
+  home.file."bin".source = ./bin;
+  home.file."bin".recursive = true;
 
   home.packages = with pkgs; [
     thunderbird

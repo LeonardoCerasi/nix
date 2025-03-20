@@ -18,11 +18,32 @@
       ll = "ls -alF";
       la = "ls -A";
       l = "ls -CF";
+      q = "exit";
+      shut = "shutdown now";
+      n = "nvim";
     };
 
     # custom zsh
     initExtra = ''
-      source ~/.zsh-custom/themes/personal.zsh-theme
+      # custom prompt
+      source $HOME/.zsh-custom/themes/personal.zsh-theme
+      
+      # custom .zcompdump location
+      export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+
+      # custom aliases
+      source $HOME/.zsh-custom/aliases/.git_alias
+      source $HOME/.zsh-custom/aliases/.notes_alias
+      if [ -f "$HOME/.local_alias" ]; then
+        source "$HOME/.local_alias"
+      fi
+    '';
+
+    # custom zsh env
+    envExtra = ''
+      if [[ -d "$HOME/bin" ]]; then
+        PATH="$HOME/bin:$PATH"
+      fi
     '';
   };
 }
