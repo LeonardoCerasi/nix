@@ -21,6 +21,7 @@
     lua51Packages.lua-lsp
     ccls
     nil
+    # haskell-language-server in /system/software/dev.nix
   ];
 
   programs.neovim = {

@@ -11,6 +11,7 @@
 
       # <--- SOFTWARE --->
       ./software/bootloader.nix
+      ./software/dev.nix
       ./software/locale.nix
       ./software/network.nix
       ./software/window-manager/x11.nix

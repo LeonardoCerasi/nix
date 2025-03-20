@@ -18,7 +18,7 @@
     jdk
     # Haskell
     ghc
-    haskellPackages.hls
+    haskellPackages.haskell-language-server
     haskellPackages.cabal-install
     haskellPackages.stack
   ];
