@@ -2,8 +2,12 @@
 
 {
   home.packages = with pkgs; [
-    oh-my-zsh
+    #oh-my-zsh
   ];
+
+  # custom zsh
+  home.file.".zsh-custom".source = ./.zsh-custom;
+  home.file.".zsh-custom".recursive = true;
 
   programs.zsh = {
     enable = true;
@@ -16,19 +20,9 @@
       l = "ls -CF";
     };
 
-    oh-my-zsh = {
-      enable = true;
-      custom = "~/.oh-my-zsh";
-      theme = "personal";
-      plugins = [
-        "git"
-        "fast-syntax-highlighting"
-      ];
-    };
+    # custom zsh
+    initExtra = ''
+      source ~/.zsh-custom/themes/personal.zsh-theme
+    '';
   };
-
-  #home.file.".zshrc".source = ./.zshrc;
-  #home.file.".zshenv".source = ./.zshenv;
-  home.file.".oh-my-zsh".source = ./.oh-my-zsh;
-  home.file.".oh-my-zsh".recursive = true;
 }
