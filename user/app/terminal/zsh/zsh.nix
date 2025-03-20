@@ -29,7 +29,7 @@
       source $HOME/.zsh-custom/themes/personal.zsh-theme
       
       # custom .zcompdump location
-      export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+      export ZSH_COMPDUMP=$HOME/.cache/.zcompdump-$HOST
 
       # custom aliases
       source $HOME/.zsh-custom/aliases/.git_alias

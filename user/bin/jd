@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # program which returns Julian Day of current date (regardless if before or after 12:00:00 UTC)
 # if passing input, use yyyy mm dd hh mm ss nn

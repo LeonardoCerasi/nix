@@ -6,13 +6,24 @@
   #services.displayManager.ly.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-
   environment.systemPackages = with pkgs; [
     gnomeExtensions.appindicator
     gnome-keyring
+    gnome-tweaks
   ];
 
-  # gnome
+  programs.dconf.profiles.user = {
+    databases = [{
+      lockAll = true;
+      settings ={
+        "org/gnome/desktop/interface" = {
+          clock-show-seconds = true;
+        };
+      };
+    }];
+  };
+
+  # excluded packages
   environment.gnome.excludePackages = with pkgs; [
     baobab      # disk usage analyzer
     cheese      # photo booth

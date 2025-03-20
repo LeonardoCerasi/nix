@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # program which precesses the celestial position given (in equatorial coordinates) to a specified epoch (if unspecified, current UTC date)
 # input: [α] hh mm ss ds [δ] dd pp ss ds (yyyy mm dd hh mm ss nn)
