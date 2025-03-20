@@ -10,6 +10,7 @@
     ./app/latex.nix
     ./app/libreoffice.nix
     ./app/comms.nix
+    ./app/git.nix
   ];
   home.username = "leonardo";
   home.homeDirectory = "/home/leonardo/";

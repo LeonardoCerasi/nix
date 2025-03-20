@@ -3,10 +3,6 @@
 {
   environment.systemPackages = with pkgs; [
     gnupg
-    pass
-    pinentry
-    pinentry-curses
-    pinentry-gnome3
   ];
 
   # gpg

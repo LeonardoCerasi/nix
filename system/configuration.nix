@@ -58,7 +58,6 @@
     vim
     wget
     git
-    git-credential-manager
     stow
     lshw # info about hardware
     libnotify # notifications (necessary)
@@ -69,6 +68,11 @@
   environment.variables = {
     _JAVA_OPTIONS= "-Dawt.useSystemAAFontSettings=lcd";
   };
+
+  # remove ssh-askpass popup for git
+  environment.extraInit = ''
+    unset -v SSH_ASKPASS
+  '';
 
   # zsh
   programs.zsh.enable = true;
