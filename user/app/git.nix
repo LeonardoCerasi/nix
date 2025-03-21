@@ -17,6 +17,7 @@
 
     extraConfig = {
       credential.helper = "manager";
+      credential.store = "gpg";
     };
   };
 }

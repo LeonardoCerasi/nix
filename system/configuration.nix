@@ -59,6 +59,7 @@
     vim
     wget
     git
+    pass # needed for git-credential-manager
     stow
     lshw # info about hardware
     libnotify # notifications (necessary)
