@@ -5,7 +5,7 @@
     ./app/nvim/nvim.nix
     ./app/terminal/kitty/kitty.nix
     ./app/terminal/zsh/zsh.nix
-    ./app/browser/librewolf/firefox.nix
+    ./app/browser/firefox/firefox.nix
     ./app/browser/vivaldi.nix
     ./app/latex.nix
     ./app/libreoffice.nix
