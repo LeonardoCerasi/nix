@@ -14,5 +14,9 @@
       key = "86814D218FAD9435";
       signByDefault = true;
     };
+
+    extraConfig = {
+      credential.helper = "manager";
+    };
   };
 }
