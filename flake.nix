@@ -37,6 +37,11 @@
         modules = [ ./users/leonardo/leonardo.nix ];
       };
 
+      leo = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./users/leo/leo.nix ];
+      };
+
     };
 
   };

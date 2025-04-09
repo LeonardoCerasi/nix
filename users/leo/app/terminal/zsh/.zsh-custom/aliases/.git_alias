@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+alias gs='git status'
+alias gd='git diff'
+alias gc='git clone'
+alias gr='git restore'
+alias gac='git add . && git commit -m'
+alias gpl='git pull'
+alias gck='git checkout'
+alias gps='git push'

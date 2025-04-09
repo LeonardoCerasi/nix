@@ -1,0 +1,82 @@
+#!/usr/bin/env bash
+
+# program which precesses the celestial position given (in equatorial coordinates) to a specified epoch (if unspecified, current UTC date)
+# input: [α] hh mm ss ds [δ] dd pp ss ds (yyyy mm dd hh mm ss nn)
+
+function jul_date # year month day hour minute seconds nanoseconds
+{
+	year=$1
+	month=$2
+	day=$3
+	hour=$4
+	min=$5
+	sec=$6
+	nan=$7
+
+	jd_int=$((10#$day - 32075 + 1461 * (10#$year + 4800 - (14 - 10#$month) / 12) / 4 + 367 * (10#$month - 2 + ((14 - 10#$month) / 12) * 12) / 12 - 3 * ((10#$year + 4900 - (14 - 10#$month) / 12) / 100) / 4))
+
+	jd=$(echo "$jd_int + (($hour - 12) + ($min + ($sec + $nan / 1000000000 ) / 60) / 60) / 24" | bc -l)
+
+	echo $jd
+}
+
+r_asc=$(echo "($1 + ($2 + ($3 + $4 / 10) / 60) / 60) * 15" | bc -l) # relative to celestial equator
+decl=$(echo "$5 + ($6 + ($7 + $8 / 10) / 60) / 60" | bc -l)  # relative to vernal equinox
+
+declare -a date=()
+
+for ((i = 9 ; i <= $# ; i++))
+do
+	if ! [ -z "${!i}" ]
+	then
+		date+=("${!i}")
+	fi
+done
+
+if [ ${#date[@]} -eq 0 ]
+then
+	date[0]=$(date -u +%Y)
+	date[1]=$(date -u +%m)
+	date[2]=$(date -u +%d)
+	date[3]=$(date -u +%H)
+	date[4]=$(date -u +%M)
+	date[5]=$(date -u +%S)
+	date[6]=$(date -u +%N)
+fi
+
+jd=$(jul_date ${date[@]})
+
+T=$(echo "($jd - 2451545) / 36525" | bc -l)
+T=0.05575
+M=$(echo "1.2812323 * $T + 0.0003879 * $T^2 + 0.0000101 * $T^3" | bc -l)
+N=$(echo "0.5567530 * $T - 0.0001185 * $T^2 - 0.0000116 * $T^3" | bc -l)
+
+d_r_asc=$(echo "$M + $N * s($r_asc * 4 * a(1) / 180) * s($decl * 4 * a(1) / 180) / c($decl * 4 * a(1) / 180)" | bc -l)
+d_decl=$(echo "$N * c($r_asc * 4 * a(1) / 180)" | bc -l)
+
+ra_t=$(echo "$r_asc + $d_r_asc" | bc -l)
+d_t=$(echo "$decl + $d_decl" | bc -l)
+
+python - << EOF
+
+ra_h_calc = $ra_t - $ra_t % 15
+ra_h = int(ra_h_calc / 15)
+ra_min_calc_1 = ($ra_t % 15) * 60
+ra_min_calc_2 = ra_min_calc_1 - ra_min_calc_1 % 15
+ra_min = int(ra_min_calc_2 / 15)
+ra_sec_calc = (ra_min_calc_1 % 15) * 60
+ra_sec = round(ra_sec_calc / 15, 1)
+
+print('α: ' + str(ra_h) + 'h ' + str(ra_min) + 'm ' + str(ra_sec) + 's')
+
+d_deg = abs($d_t) - abs($d_t) % 1
+d_pr_calc = (abs($d_t) % 1) * 60
+d_pr = d_pr_calc - d_pr_calc % 1
+d_sec = round(d_pr_calc % 1, 1)
+
+sign_d = 1
+if ($d_t < 0): sign_d = -1
+
+print('δ: ' + str(sign_d * d_deg) + '° ' + str(d_pr) + "' " + str(d_sec) + '"')
+
+EOF

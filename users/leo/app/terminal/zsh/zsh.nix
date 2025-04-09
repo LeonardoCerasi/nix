@@ -27,7 +27,7 @@
     initExtra = ''
       # custom prompt
       source $HOME/.zsh-custom/themes/personal.zsh-theme
-
+      
       # custom .zcompdump location
       export ZSH_COMPDUMP=$HOME/.cache/.zcompdump-$HOST
 
