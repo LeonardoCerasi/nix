@@ -1,0 +1,239 @@
+// catppuccin-macchiato palette
+$macchiato-rosewater: #f4dbd6;
+$macchiato-flamingo: #f0c6c6;
+$macchiato-pink: #f5bde6;
+$macchiato-mauve: #c6a0f6;
+$macchiato-red: #ed8796;
+$macchiato-maroon: #ee99a0;
+$macchiato-peach: #f5a97f;
+$macchiato-yellow: #eed49f;
+$macchiato-green: #a6da95;
+$macchiato-teal: #8bd5ca;
+$macchiato-sky: #91d7e3;
+$macchiato-sapphire: #7dc4e4;
+$macchiato-blue: #8aadf4;
+$macchiato-lavender: #b7bdf8;
+$macchiato-text: #cad3f5;
+$macchiato-subtext1: #b8c0e0;
+$macchiato-subtext0: #a5adcb;
+$macchiato-overlay2: #939ab7;
+$macchiato-overlay1: #8087a2;
+$macchiato-overlay0: #6e738d;
+$macchiato-surface2: #5b6078;
+$macchiato-surface1: #494d64;
+$macchiato-surface0: #363a4f;
+$macchiato-base: #24273a;
+$macchiato-mantle: #1e2030;
+$macchiato-crust: #181926;
+
+
+* { all: unset; }
+
+// dashboard ###############################################################################################
+
+.dashboard {
+  font-family: UbuntuSansMono Nerd Font Mono;
+}
+
+.dash {
+  //background-color: $macchiato-base;
+  margin: 0px 10px 0px 10px;
+  border-radius: 5px;
+  padding: 30px;
+  font-size: 21pt;
+  font-size: 21pt;
+  color: $macchiato-pink;
+}
+
+.profile
+{
+  background-color: $macchiato-base;
+  border-color: $macchiato-green;
+  border-width: 4px;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+.profile-img
+{
+  background-image: url("/home/leonardo/wallpapers/profile.jpg");
+  background-size: 180px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  min-height: 180px;
+  min-width: 180px;
+  margin: 0px;
+  border-radius: 10px 0px 50px 0px;
+}
+
+.profile-box
+{
+  //border-color: $macchiato-red;
+  //border-width: 4px;
+  //border-style: solid;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.lovecraft
+{
+  background-color: $macchiato-base;
+  border-color: $macchiato-red;
+  border-width: 4px;
+  border-style: solid;
+  border-radius: 10px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  color: $macchiato-red;
+}
+
+.profile-usr
+{
+  color: $macchiato-sapphire;
+}
+
+.date
+{
+  background-color: $macchiato-base;
+  border-color: $macchiato-green;
+  border-width: 4px;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+.date-box
+{
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.julian-date
+{
+  color: $macchiato-peach;
+}
+
+.utc-date
+{
+  color: $macchiato-teal;
+}
+
+.ram
+{
+  background-color: $macchiato-base;
+  border-color: $macchiato-sky;
+  border-width: 4px;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+.used-ram
+{
+  color: $macchiato-yellow;
+  font-weight: bold;
+}
+
+.cpu
+{
+  background-color: $macchiato-base;
+  border-color: $macchiato-sky;
+  border-width: 4px;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+.used-cpu
+{
+  color: $macchiato-yellow;
+  font-weight: bold;
+}
+
+.buttons
+{
+  background-color: $macchiato-crust;
+  font-size: 60pt;
+  //border-color: $macchiato-sky;
+  //border-width: 4px;
+  //border-style: solid;
+  border-radius: 10px;
+  padding: 60px;
+}
+
+.sleep
+{
+  color: $macchiato-yellow;
+}
+
+.reboot
+{
+  color: $macchiato-green;
+}
+
+.shutdown
+{
+  color: $macchiato-red;
+}
+
+.disk
+{
+  background-color: $macchiato-base;
+  border-color: $macchiato-green;
+  border-width: 4px;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+.wifi
+{
+  background-color: $macchiato-base;
+  border-color: $macchiato-green;
+  border-width: 4px;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+.volume
+{
+  background-color: $macchiato-base;
+  border-color: $macchiato-green;
+  border-width: 4px;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+// topbar ##################################################################################################
+
+.topbar {
+  font-family: UbuntuSansMono Nerd Font Mono;
+}
+
+.bar {
+  background-color: $macchiato-base;
+  //box-shadow: 2px 4px 2px 1px rgba(0,0,0,0.5);
+  margin: 0px 10px 0px 10px;
+  border-radius: 5px;
+  padding-right: 30px;
+  padding-left: 30px;
+  font-size: 21pt;
+}
+
+.time-box {
+  color: $macchiato-yellow;
+  font-weight: bold;
+}
+
+.clock-label {
+  font-size: 33pt;
+}
+
+.battery-label {
+  color: $macchiato-green;
+}
+
+.network-label {
+  font-size: 33pt;
+  color: $macchiato-blue;
+}
+
+.sundial-label {
+  color: $macchiato-pink;
+}

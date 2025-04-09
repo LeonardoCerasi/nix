@@ -3,7 +3,16 @@
 {
   imports = [
     ./binds.nix
+    ./waybar.nix
   ];
+
+  services.swaync = {
+    enable = true;
+  };
+
+
+  home.file.".config/hypr/wofi".source = ./wofi;
+  home.file.".config/hypr/wofi".recursive = true;
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -21,7 +30,7 @@
       };
 
       gestures = {
-        workspace_swipe = false;
+        workspace_swipe = true;
       };
 
       misc = {
@@ -36,6 +45,7 @@
 
       env = [
         "HYPRCURSOR_SIZE, 24"
+        "HYPRCURSOR_THEME, rose-pine-hyprcursor"
       ];
 
       # <--- appearance --->
@@ -73,6 +83,33 @@
           vibrancy = 0.1696;
         };
       };
+
+      # <--- auto-launch --->
+
+      exec-once = [
+        # "waybar"
+        "hyprpaper"
+        "swaync"
+
+        "eww daemon"
+        "eww open topbar"
+      ];
+    };
+  };
+
+  # <--- wallpaper --->
+
+  services.hyprpaper = {
+    enable = true;
+
+    settings = {
+      preload = [
+        "/home/leonardo/imgs/wallpaper.jpg"
+      ];
+
+      wallpaper = [
+        ", /home/leonardo/imgs/wallpaper.jpg"
+      ];
     };
   };
 }

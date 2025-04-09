@@ -1,0 +1,207 @@
+(defvar IMAGE "/home/leonardo/imgs/profile.jpg")
+
+;; dashboard ###############################################################################################
+
+(defwindow dashboard
+  :monitor 0
+  :stacking "fg"
+  :exclusive false
+  :windowtype "normal"
+  :focusable false
+  :geometry (geometry :x "0%"
+                      :y "1%"
+                      :width "99.1%"
+                      :height "92%"
+                      :anchor "center"
+            )
+  (dashboard_layout)
+)
+
+;; polls ---------------------------------------------------------------------------------------------------
+
+(defpoll uptime :interval "50s"
+  :initial `sh /home/leonardo/.config/eww/scripts/uptime.sh`
+  `sh /home/leonardo/.config/eww/scripts/uptime.sh`)
+
+(defpoll julian_date :interval "50s"
+  :initial `printf %.8f $(echo "$(jd)" | bc -l)`
+  `printf %.8f $(echo "$(jd)" | bc -l)`
+)
+(defpoll utc_date :interval "50s"
+  :initial `date -u +'{"hour":"%H","min":"%M","year":"%Y","month":"%m","day":"%d"}'`
+  `date -u +'{"hour":"%H","min":"%M","year":"%Y","month":"%m","day":"%d"}'`
+)
+
+;; widgets -------------------------------------------------------------------------------------------------
+
+(defwidget dashboard_layout []
+  (box :class "dash" :space-evenly true :orientation "vertical" :spacing 30
+    (box :space-evenly true :orientation "horizontal" :spacing 30
+      (profile)
+      (box :class "lovecraft" :space-evenly true :orientation "vertical" :vexpand true :hexpand false
+        (label :text "That is not dead")
+        (label :text "which can eternal lie,")
+        (label :text "and with strange aeons")
+        (label :text "even death may die.")
+      )
+      (box :class "date"
+        (box :class "date-box" :space-evenly true :orientation "vertical" :vexpand false :hexpand false
+          (box :class "julian-date" :halign "center"
+            (label :text "JDN: ${julian_date}")
+          )
+          (box :class "utc-date" :halign "center"
+            (label :text "UTC: ${utc_date.year}-${utc_date.month}-${utc_date.day} ${utc_date.hour}:${utc_date.min}")
+          )
+        )
+      )
+    )
+    (box :space-evenly true :orientation "horizontal" :spacing 30
+      (box :class "cpu" :space-evenly true :orientation "vertical"
+        (box :class "cpu-box" :space-evenly false :orientation "horizontal" :halign "center"
+          (label :text "CPU: ")
+          (label :class "used-cpu" :text "${round(EWW_CPU.avg, 3)}%")
+        )
+      )
+      (box :class "buttons" :space-evenly false :orientation "horizontal" :spacing 100 :halign "center"
+        (logout)
+        (reboot)
+        (shutdown)
+      )
+      (box :class "ram" :space-evenly true :orientation "vertical"
+        (box :class "ram-box" :space-evenly false :orientation "horizontal" :halign "center"
+          (label :text "RAM: ")
+          (label :class "used-ram" :text "${round(EWW_RAM.used_mem / 1000000000, 3)}")
+          (label :text "/${round(EWW_RAM.total_mem / 1000000000, 3)} GB")
+        )
+      )
+    )
+    (box :space-evenly true :orientation "horizontal" :spacing 30
+      (box :class "disk"
+        (label :text "disk usage")
+      )
+      (box :class "wifi"
+        (label :text "wifi")
+      )
+      (box :class "volume"
+        (label :text "volume & brightness")
+      )
+    )
+  )
+)
+
+(defwidget profile []
+  (box :class "profile" :space-evenly true :orientation "horizontal" :vexpand false :hexpand false
+    (box :class "profile-img" :halign "center")
+    (box :class "profile-box" :space-evenly true :orientation "vertical" :vexpand false :hexpand false
+      (box :class "profile-usr" :halign "start"
+        (label :text "товарищ leonardo")
+      )
+      (box :class "uptime-usr" :halign "start"
+        (label :text "uptime: ${uptime}")
+      )
+    )
+  )
+)
+
+(defwidget logout []
+  (box :class "button" :vexpand false :hexpand false
+    (button :class "sleep" :onclick "systemctl suspend" "")
+  )
+)
+
+(defwidget reboot []
+  (box :class "button" :vexpand false :hexpand false
+    (button :class "reboot" :onclick "systemctl reboot" "")
+  )
+)
+
+(defwidget shutdown []
+  (box :class "button" :vexpand false :hexpand false
+    (button :class "shutdown" :onclick "systemctl poweroff" "")
+  )
+)
+
+;; topbar ##################################################################################################
+
+(defwindow topbar
+  :monitor 0
+  :stacking "bt"
+  :exclusive true
+  :windowtype "dock"
+  :focusable false
+  :geometry (geometry :x "0%"
+                      :y "1%"
+                      :width "99.1%"
+                      :height "4%"
+                      :anchor "top center"
+            )
+  (topbar_layout)
+)
+
+;; polls ---------------------------------------------------------------------------------------------------
+
+(defpoll time :interval "5s"
+  :initial `date +'{"hour":"%H","min":"%M"}'`
+  `date +'{"hour":"%H","min":"%M"}'`)
+(defpoll net :interval "100s"
+  :initial `nmcli -t -f SIGNAL,ACTIVE device wifi \
+    | awk -F':' '{if($2=="yes")print$1}'`
+  `nmcli -t -f SIGNAL,ACTIVE device wifi \
+    | awk -F':' '{if($2=="yes")print$1}'`)
+
+;; widgets -------------------------------------------------------------------------------------------------
+
+(defwidget topbar_layout []
+  (box :class "bar" :space-evenly false :orientation "horizontal"
+    (box :class "time-box" :space-evenly false :halign "start" :vexpand true :hexpand true :spacing 15
+        (label :text "" :class "clock-label")
+        (label :text "${time.hour}:${time.min}")
+    )
+    (box :class "status-box" :space-evenly false :halign "end" :vexpand true :hexpand true :spacing 25
+      (_sundial)
+      (_battery :status {EWW_BATTERY.BAT0.status}
+                :battery {EWW_BATTERY.BAT0.capacity}
+                :charge "󰂄" :one "󰁹" :two "󰂂" :three "󰂀" :four "󰁿"
+                :five "󰁽" :six "󰁼" :seven "󰁺")
+      (label :text "${EWW_BATTERY.BAT0.capacity}%" :class "battery-label")
+      (_network :strength net :offline "󰤮" :excellent "󰤨" :good "󰤥"
+                :okay "󰤢" :slow "󰤟")
+    )
+  )
+)
+
+(defwidget _battery [battery status one two three
+                    four five six seven charge]
+  (box :class "bat-box" :space-evenly false :spacing 8
+    (label :text {status == 'Charging' ? charge :
+      battery < 15 ? seven :
+        battery < 30 ? six :
+          battery < 45 ? five :
+            battery < 60 ? four :
+              battery < 75 ? three :
+                battery < 95 ? two : one} :class "battery-label")))
+
+(defwidget _network [strength offline excellent
+                    good okay slow]
+  (box :class "net-box"
+       :space-evenly false
+       :spacing 8
+    (label :text {strength == "" ? offline :
+      strength < 26 ? slow :
+        strength < 51 ? okay :
+          strength < 76 ? good : excellent} :class "network-label")))
+
+(defwidget _buttons [shutdown shutdown_icon reboot
+                    reboot_icon logout logout_icon]
+  (box :class "buttons-box" :spacing 5
+       :vexpand true :hexpand true
+       :valign "end" :halign "end"
+       :space-evenly false
+    (button :onclick shutdown shutdown_icon)
+    (button :onclick reboot reboot_icon)
+    (button :onclick logout logout_icon)))
+
+(defwidget _sundial []
+  (label :class "sundial-label" :halign "end" :hexpand true
+         :text "привет товарищ" )
+)

@@ -10,6 +10,7 @@
       # <--- SOFTWARE --->
       ./software/bootloader.nix
       ./software/dev.nix
+      ./software/fonts.nix
       ./software/locale.nix
       ./software/network.nix
       ./software/window-manager/hyprland.nix
