@@ -20,7 +20,12 @@
 
       desktop = lib.nixosSystem {
         inherit system;
-        modules = [ ./system/configuration.nix ];
+        modules = [ ./systems/desktop/configuration.nix ];
+      };
+
+      laptop = lib.nixosSystem {
+        inherit system;
+        modules = [ ./systems/laptop/configuration.nix ];
       };
 
     };
@@ -29,7 +34,7 @@
 
       leonardo = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./user/leonardo.nix ];
+        modules = [ ./users/leonardo/leonardo.nix ];
       };
 
     };
