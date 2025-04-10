@@ -1,6 +1,9 @@
 { pkgs, ... }:
 
 let
+  usrname = "leonardo";
+  homefld = "/home/leonardo";
+  fullname = "Leonardo Cerasi";
   nixver = "24.11";
   hostname = "desktop";
   timezone = "Europe/Rome";
@@ -25,10 +28,10 @@ in
     ];
 
   # user account
-  users.users.leonardo = {
+  users.users.${usrname} = {
     isNormalUser = true;
-    home = "/home/leonardo";
-    description = "Leonardo Cerasi";
+    home = homefld;
+    description = fullname;
     extraGroups = [ "networkmanager" "wheel" "openrazer" ];
   };
 

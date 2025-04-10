@@ -4,6 +4,7 @@
   imports = [
     ./binds.nix
     ./waybar.nix
+    ./hyprlock.nix
   ];
 
   services.swaync = {
@@ -24,9 +25,18 @@
 
       input = {
         kb_layout = "it";
-        follow_mouse = 0;
-        touchpad.natural_scroll = true;
+        follow_mouse = 2;
         numlock_by_default = true;
+
+        touchpad = {
+          natural_scroll = true;
+          disable_while_typing = "yes";
+        };
+      };
+
+      cursor = {
+        no_warps = true;
+        inactive_timeout = 1;
       };
 
       gestures = {
@@ -34,8 +44,10 @@
       };
 
       misc = {
+        background_color = "0x000000";
         force_default_wallpaper = 0;
         disable_hyprland_logo = true;
+        disable_splash_rendering = true;
 
         animate_manual_resizes = true;
         animate_mouse_windowdragging = true;
@@ -87,13 +99,15 @@
       # <--- auto-launch --->
 
       exec-once = [
-        "waybar"
         "hyprpaper"
+        "hyprlock && hyprctl hyprpaper wallpaper ', ~/imgs/wallpaper.jpg'"
+        "waybar"
         "swaync"
 
         # "eww daemon"
         # "eww open topbar"
       ];
+
     };
   };
 
@@ -106,10 +120,7 @@
       preload = [
         "~/imgs/wallpaper.jpg"
       ];
-
-      wallpaper = [
-        ", ~/imgs/wallpaper.jpg"
-      ];
     };
   };
+
 }

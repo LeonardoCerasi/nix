@@ -1,6 +1,9 @@
 { pkgs, ... }:
 
 let
+  usrname = "leonardo";
+  homefld = "/home/leonardo";
+  fullname = "Leonardo Cerasi";
   nixver = "24.11";
   hostname = "laptop";
   timezone = "Europe/Rome";
@@ -23,11 +26,11 @@ in
     ];
 
   # user account
-  users.users.leonardo = {
+  users.users.${usrname} = {
     isNormalUser = true;
-    home = "/home/leonardo";
-    description = "Leonardo Cerasi";
-    extraGroups = [ "networkmanager" "wheel" "openrazer" ];
+    home = homefld;
+    description = fullname;
+    extraGroups = [ "networkmanager" "wheel" ];
   };
 
   # nix version
@@ -85,4 +88,24 @@ in
   # zsh
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
+
+  # <--- services --->
+
+  services = {
+
+    greetd = {
+      enable = true;
+      settings = {
+        initial_session = {
+          command = "Hyprland";
+          user = usrname;
+        };
+        default_session = {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet -cmd Hyprland";
+          user = "greeter";
+        };
+      };
+    };
+
+  };
 }
