@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-FLAG_FILE="/home/leonardo/.cache/eww_dashboard.flag"
+FLAG_FILE="${HOME}/.cache/eww_dashboard.flag"
 
 if [[ ! `pidof eww` ]]; then
 	eww daemon

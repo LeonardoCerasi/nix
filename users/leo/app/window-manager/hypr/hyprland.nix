@@ -104,11 +104,11 @@
 
     settings = {
       preload = [
-        "/home/leonardo/imgs/wallpaper.jpg"
+        "~/imgs/wallpaper.jpg"
       ];
 
       wallpaper = [
-        ", /home/leonardo/imgs/wallpaper.jpg"
+        ", ~/imgs/wallpaper.jpg"
       ];
     };
   };

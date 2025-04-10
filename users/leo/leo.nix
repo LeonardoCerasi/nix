@@ -1,5 +1,10 @@
 { pkgs, ... }:
 
+let
+  usrname = "leonardo";
+  homefld = "/home/leonardo/";
+  nixver = "24.11";
+in
 {
   imports = [
     ./app/nvim/nvim.nix
@@ -14,10 +19,11 @@
     ./app/window-manager/hypr/hyprland.nix
     ./app/eww/eww.nix
   ];
-  home.username = "leonardo";
-  home.homeDirectory = "/home/leonardo/";
 
-  home. stateVersion = "24.11";
+  home.username = usrname;
+  home.homeDirectory = homefld;
+
+  home. stateVersion = nixver;
   programs.home-manager.enable = true;
 
   nixpkgs.config.allowUnfree = true;
