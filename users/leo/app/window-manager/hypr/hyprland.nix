@@ -91,8 +91,8 @@
         "hyprpaper"
         "swaync"
 
-        #"eww daemon"
-        #"eww open topbar"
+        # "eww daemon"
+        # "eww open topbar"
       ];
     };
   };

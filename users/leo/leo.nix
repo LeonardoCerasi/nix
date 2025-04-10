@@ -18,7 +18,7 @@ in
     ./app/comms.nix
     ./app/git.nix
     ./app/window-manager/hypr/hyprland.nix
-    ./app/eww/eww.nix
+    # ./app/eww/eww.nix
   ];
 
   home.username = usrname;

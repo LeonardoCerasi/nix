@@ -51,8 +51,8 @@
         "clock" = {
           interval = 1;
           format = "<b>{:%H:%M:%S}</b>";
-          format-alt = "<b>{:%Y-%m-%d}<b>";
-          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          format-alt = "<b>{:%Y-%m-%d}</b>";
+          tooltip-format = "<tt><small>{calendar}</small></tt>";
         };
 
         "cpu" = {
@@ -197,19 +197,14 @@
           #disable-scroll = true;
           all-outputs = true;
           persistent-workspaces = {
-            "*" = [ 1 2 3 4 5];
+            "*" = 6;
           };
           #warp-on-scroll = false;
           format = "{icon}";
-          "format-icons" = {
-            "1" = "";
-            "2" = "";
-            "3" = "";
-            "4" = "";
-            "5" = "";
-          #  urgent = "";
-          #  focused = "";
-          #  default = "";
+          format-icons = {
+            active = "<b></b>";
+            persistent = "";
+            empty = "";
           };
           sort-by-number = true;
         };
@@ -309,7 +304,7 @@ window#waybar {
 }
 
 #workspaces button.active {
-    background-color: @macchiato-surface1;
+    color: @macchiato-red;
 }
 
 #mode {

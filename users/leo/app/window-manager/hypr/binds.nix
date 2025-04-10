@@ -18,7 +18,7 @@ in
       "${main} SHIFT, Q, killactive"
       "${main}, SPACE, exec, ${menu}"
 
-      "${main}, M, exec, /home/leonardo/bin/dashboard.sh"
+      # "${main}, M, exec, /home/leonardo/bin/dashboard.sh"
 
       # <--- nav binds --->
 
