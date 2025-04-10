@@ -7,6 +7,7 @@ let
 in
 {
   imports = [
+    ./fonts.nix
     ./app/nvim/nvim.nix
     ./app/terminal/kitty/kitty.nix
     ./app/terminal/zsh/zsh.nix

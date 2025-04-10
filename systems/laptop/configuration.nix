@@ -16,7 +16,6 @@ in
       # <--- SOFTWARE --->
       ./software/bootloader.nix
       ./software/dev.nix
-      ./software/fonts.nix
       ./software/locale.nix
       ./software/network.nix
       ./software/window-manager/hyprland.nix
@@ -69,6 +68,7 @@ in
     stow
     lshw # info about hardware
     libnotify # notifications (necessary)
+    material-design-icons
 
     home-manager
   ];
