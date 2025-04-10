@@ -1,5 +1,11 @@
 { pkgs, ... }:
 
+let
+  nixver = "24.11";
+  hostname = "desktop";
+  timezone = "Europe/Rome";
+  keymap = "it2";
+in
 {
   imports =
     [
@@ -18,8 +24,16 @@
       ./software/app/gnupg.nix
     ];
 
-  # nix version
-  system.stateVersion = "24.11";
+  # user account
+  users.users.leonardo = {
+    isNormalUser = true;
+    home = "/home/leonardo";
+    description = "Leonardo Cerasi";
+    extraGroups = [ "networkmanager" "wheel" "openrazer" ];
+  };
+
+ # nix version
+  system.stateVersion = nixver;
 
   # enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -35,19 +49,12 @@
   nix.settings.auto-optimise-store = true;
 
   # system settings
-  networking.hostName = "desktop";
-  time.timeZone = "Europe/Rome";
-  console.keyMap = "it2";
+  networking.hostName = hostname;
+  time.timeZone = timezone;
+  console.keyMap = keymap;
 
   # CUPS
   services.printing.enable = true;
-
-  # user account
-  users.users.leonardo = {
-    isNormalUser = true;
-    description = "Leonardo Cerasi";
-    extraGroups = [ "networkmanager" "wheel" "openrazer" ];
-  };
 
   # <--- PACKAGES --->
 
