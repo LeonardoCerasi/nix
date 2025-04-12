@@ -14,6 +14,7 @@ in
     [
       # <--- HARDWARE --->
       ./hardware/hardware-configuration.nix
+      ./hardware/nvidia.nix
       ./hardware/audio.nix
 
       # <--- SOFTWARE --->
