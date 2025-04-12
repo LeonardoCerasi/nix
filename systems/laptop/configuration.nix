@@ -74,6 +74,7 @@ in
     libnotify # notifications (necessary)
     material-design-icons
     cryptsetup # LUKS for dm-crypt
+    keypassxc
 
     home-manager
   ];
