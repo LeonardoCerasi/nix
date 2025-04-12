@@ -73,6 +73,7 @@ in
     stow
     lshw # info about hardware
     libnotify # notifications (necessary)
+    cryptsetup # LUKS for dm-crypt
 
     home-manager
   ];

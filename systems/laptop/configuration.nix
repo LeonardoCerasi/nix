@@ -72,6 +72,7 @@ in
     lshw # info about hardware
     libnotify # notifications (necessary)
     material-design-icons
+    cryptsetup # LUKS for dm-crypt
 
     home-manager
   ];
