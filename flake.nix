@@ -21,12 +21,12 @@
 
       desktop = lib.nixosSystem {
         inherit system;
-        modules = [ ./systems/desktop/configuration.nix ];
+        modules = [ ./hosts/desktop/configuration.nix ];
       };
 
       laptop = lib.nixosSystem {
         inherit system;
-        modules = [ ./systems/laptop/configuration.nix ];
+        modules = [ ./hosts/laptop/configuration.nix ];
       };
 
     };
@@ -35,12 +35,12 @@
 
       leonardo = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./users/leonardo/leonardo.nix ];
+        modules = [ ./users/leonardo/home.nix ];
       };
 
       leo = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./users/leo/leo.nix ];
+        modules = [ ./users/leo/home.nix ];
       };
 
     };
