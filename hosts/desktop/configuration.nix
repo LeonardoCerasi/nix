@@ -22,6 +22,7 @@ in
       ./software/dev.nix
       ./software/locale.nix
       ./software/network.nix
+      # ./software/virtualization.nix
 
       # <--- MODULES --->
       ../../modules/wm/gnome/x11.nix
