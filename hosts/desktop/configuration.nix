@@ -39,4 +39,11 @@ in
 
   # system settings
   networking.hostName = hostname;
+
+  # <--- packages --->
+
+  environment.systemPackages = with pkgs; [
+    appimage-run
+  ];
+
 }
