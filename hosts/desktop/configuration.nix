@@ -37,8 +37,8 @@ in
     extraGroups = [ "networkmanager" "wheel" "openrazer" ];
 
     openssh = {
-      authorizedKeys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEppuYtsodZwEomPyNgiXlwIxof+r77vmU1i1Vjv00W5 leonardo@laptop"
+      authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEppuYtsodZwEomPyNgiXlwIxof+r77vmU1i1Vjv00W5"
       ];
     };
   };

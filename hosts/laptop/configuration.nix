@@ -29,6 +29,12 @@ in
     home = homefld;
     description = fullname;
     extraGroups = [ "networkmanager" "wheel" ];
+
+    openssh = {
+      authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMBTuhI76/d8w5BN4tX2UhDhaM2p3yVGl2SARW9foqIj"
+      ];
+    };
   };
 
   # system settings
