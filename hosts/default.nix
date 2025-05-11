@@ -52,6 +52,7 @@ in
     libnotify # notifications (necessary)
     cryptsetup # LUKS for dm-crypt
     keepassxc
+    lm_sensors
 
     home-manager
   ];
