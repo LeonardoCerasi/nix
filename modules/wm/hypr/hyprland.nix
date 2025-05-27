@@ -4,8 +4,6 @@
  environment.systemPackages = with pkgs; [
     brightnessctl
     hyprpaper
-    wofi
-    eww
     rose-pine-hyprcursor
   ];
 

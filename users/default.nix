@@ -15,7 +15,7 @@ in
       ../modules/git.nix
   ];
 
-  home. stateVersion = nixver;
+  home.stateVersion = nixver;
   programs.home-manager.enable = true;
 
   nixpkgs.config.allowUnfree = true;
