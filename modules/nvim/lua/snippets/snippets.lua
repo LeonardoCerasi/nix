@@ -69,9 +69,9 @@ ls.add_snippets(nil, {
 			namr = "proof",
 			dscr = "Proof environment",
 		}, {
-			text({"\\begin{proof}", "\t"}),
+			text({"\\begin{proofbox}", "\t\\begin{proof}", "\t\t"}),
 			insert(1, ""),
-			text({"", "\\end{proof}"})
+			text({"", "\t\\end{proof}", "\\end{proofboox}"})
 		}),
 		snip({
 			trig = "lemma",
