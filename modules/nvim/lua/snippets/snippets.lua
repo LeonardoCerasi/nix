@@ -71,7 +71,7 @@ ls.add_snippets(nil, {
 		}, {
 			text({"\\begin{proofbox}", "\t\\begin{proof}", "\t\t"}),
 			insert(1, ""),
-			text({"", "\t\\end{proof}", "\\end{proofboox}"})
+			text({"", "\t\\end{proof}", "\\end{proofbox}"})
 		}),
 		snip({
 			trig = "lemma",
