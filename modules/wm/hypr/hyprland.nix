@@ -5,6 +5,7 @@
     brightnessctl
     hyprpaper
     rose-pine-hyprcursor
+    wofi
   ];
 
   programs.hyprland = {
