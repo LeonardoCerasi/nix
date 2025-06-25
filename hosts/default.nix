@@ -1,7 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, nix-version, ... }:
 
 let
-  nixver = "24.11";
   timezone = "Europe/Rome";
   keymap = "it2";
 in
@@ -14,7 +13,7 @@ in
     ];
 
    # nix version
-  system.stateVersion = nixver;
+  system.stateVersion = nix-version;
 
   # enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -24,9 +23,11 @@ in
   system.autoUpgrade.dates = "weekly";
 
   # automatic garbage cleanup
-  nix.gc.automatic = true;
-  nix.gc.dates = "daily";
-  nix.gc.options = "--delete-older-than 10d";
+  nix.gc = {
+    automatic = true;
+    dates = "daily";
+    options = "--delete-older-than 10d";
+  };
   nix.settings.auto-optimise-store = true;
 
   # system settings

@@ -1,8 +1,5 @@
-{ pkgs, ... }:
+{ pkgs, nix-version, ... }:
 
-let
-  nixver = "24.11";
-in
 {
   imports =
     [
@@ -15,7 +12,7 @@ in
       ../modules/git.nix
   ];
 
-  home.stateVersion = nixver;
+  home.stateVersion = nix-version;
   programs.home-manager.enable = true;
 
   nixpkgs.config.allowUnfree = true;

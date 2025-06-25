@@ -24,7 +24,7 @@
     };
 
     # custom zsh
-    initExtra = ''
+    initContent = ''
       # custom prompt
       source $HOME/.zsh-custom/themes/personal.zsh-theme
 
