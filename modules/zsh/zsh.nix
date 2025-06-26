@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     #oh-my-zsh
+    eza
   ];
 
   # custom zsh
@@ -15,9 +16,16 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      ll = "ls -alF";
+      # eza aliases
+      ll = "eza -1laghT --classify --icons --level=1 --time-style '+%d-%m-%Y %H:%M:%S'";
+      lsize = "eza -1laghT --classify --icons --level=1 --time-style '+%d-%m-%Y %H:%M:%S' --total-size";
+      lgit = "eza -1laghT --classify --icons --level=2 --time-style '+%d-%m-%Y %H:%M:%S' --git --git-repos --git-ignore";
+
+      # ls aliases
       la = "ls -A";
       l = "ls -CF";
+
+      # other aliases
       q = "exit";
       shut = "shutdown now";
       n = "nvim";

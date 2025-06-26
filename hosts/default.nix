@@ -59,7 +59,8 @@ in
   ];
 
   environment.variables = {
-    _JAVA_OPTIONS= "-Dawt.useSystemAAFontSettings=lcd";
+    _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=lcd";
+    NIX_VERSION = "${nix-version}";
   };
 
   # remove ssh-askpass popup for git
