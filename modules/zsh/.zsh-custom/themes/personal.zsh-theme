@@ -77,13 +77,14 @@ function get_git_prompt {
             local added_count=$(echo "$_gitstatus" | grep '^A ' | wc -l)
             local modified_count_1=$(echo "$git_status" | grep '^M ' | wc -l)
             local modified_count_2=$(echo "$git_status" | grep '^MM ' | wc -l)
+            local modified_count_3=$(echo "$git_status" | grep '^ M ' | wc -l)
             local deleted_count_1=$(echo "$git_status" | grep '^D ' | wc -l)
             local deleted_count_2=$(echo "$git_status" | grep '^ D ' | wc -l)
             local renamed_count=$(echo "$git_status" | grep '^R ' | wc -l)
             local unmerged_count=$(echo "$git_status" | grep '^U ' | wc -l)
             local untracked_count=$(echo "$git_status" | grep '^?? ' | wc -l)
 
-            local modified_count=$(echo "$modified_count_1 + $modified_count_2" | bc -l)
+            local modified_count=$(echo "$modified_count_1 + $modified_count_2 + $modified_count_3" | bc -l)
             local deleted_count=$(echo "$deleted_count_1 + $deleted_count_2" | bc -l)
 
             (( added_count > 0 )) && git_icons+="$ZSH_THEME_GIT_PROMPT_ADDED$added_count"
@@ -101,7 +102,7 @@ function get_git_prompt {
             git_comm+="%F{$text}(%f%F{$yellow}$git_sha%f%F{$text})%f"
         fi
 
-        echo " %F{$peach} %B$branch%b%f$git_comm$git_icons"
+        echo " %F{$text}on%f %F{$peach} %B$branch%b%f$git_comm$git_icons"
     fi
 }
 
@@ -130,7 +131,7 @@ function print_prompt_head {
 %F{$sapphire}@%f\
 %F{$green}$(get_pc_name)%f \
 %F{$blue} $NIX_VERSION%f %F{$text}at%f \
-%B%F{$maroon}$(get_current_dir)%f%b %F{$text}on%f\
+%B%F{$maroon}$(get_current_dir)%f%b\
 $(get_git_prompt) "
 
     local right_prompt="%F{$blue}($(get_time_stamp))%f "
@@ -138,7 +139,7 @@ $(get_git_prompt) "
 }
 function get_prompt_indicator {
     if [[ $? -eq 0 ]]; then
-        echo "%B%F{$magenta}$cmd_prompt %f%b"
+        echo "%B%F{$magenta}$cmd_prompt%f%b "
     else
         echo "%B%F{$red}$cmd_prompt %f%b"
     fi

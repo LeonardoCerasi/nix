@@ -19,7 +19,7 @@
       # eza aliases
       ll = "eza -1laghT --classify --icons --level=1 --time-style '+%d-%m-%Y %H:%M:%S'";
       lsize = "eza -1laghT --classify --icons --level=1 --time-style '+%d-%m-%Y %H:%M:%S' --total-size";
-      lgit = "eza -1laghT --classify --icons --level=2 --time-style '+%d-%m-%Y %H:%M:%S' --git --git-repos --git-ignore";
+      lgit = "eza -1laghT --classify --icons --level=2 --time-style '+%d-%m-%Y %H:%M:%S' --git --git-repos --git-ignore --ignore-glob=images";
 
       # ls aliases
       la = "ls -A";

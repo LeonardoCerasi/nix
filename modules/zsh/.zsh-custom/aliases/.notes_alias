@@ -1,11 +1,17 @@
 #!/usr/bin/env zsh
 
-alias elett='cd ~/notes/bachelor-2/semester-2/elettromagnetismo && ll'
+NOTES_PATH='/home/leonardo/notes'
+alias not='cd $NOTES_PATH && lgit'
 
-alias geogr='cd ~/notes/bachelor-3/semester-1/geometria-e-gruppi && ll'
-alias nucl='cd ~/notes/bachelor-3/semester-1/nucleare-e-subnucleare && ll'
-alias relg='cd ~/notes/bachelor-3/semester-1/relativita-generale && ll'
-alias quant='cd ~/notes/bachelor-3/semester-1/fisica-quantistica && ll'
+# bachelor-2 / semester-2
+alias elett='cd $NOTES_PATH/bachelor-2/semester-2/elettromagnetismo && lgit'
 
-alias teor='cd ~/notes/bachelor-3/semester-2/teorica && ll'
-alias stru='cd ~/notes/bachelor-3/semester-2/struttura && ll'
+# bachelor-3 / semester-1
+alias geogr='cd $NOTES_PATH/bachelor-3/semester-1/geometria-e-gruppi && lgit'
+alias nucl='cd $NOTES_PATH/bachelor-3/semester-1/nucleare-e-subnucleare && lgit'
+alias relg='cd $NOTES_PATH/bachelor-3/semester-1/relativita-generale && lgit'
+alias quant='cd $NOTES_PATH/bachelor-3/semester-1/fisica-quantistica && lgit'
+
+# bachelor-3 / semester-2
+alias teor='cd $NOTES_PATH/bachelor-3/semester-2/teorica && lgit'
+alias stru='cd $NOTES_PATH/bachelor-3/semester-2/struttura && lgit'
