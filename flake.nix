@@ -1,5 +1,5 @@
 {
-  description = "Leonardo Cerasi's nix configuration";
+  description = "Leonardo Cerasi's NixOS configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
@@ -28,7 +28,9 @@
           inherit nix-version;
         };
 
-        modules = [ ./hosts/desktop/configuration.nix ];
+        modules = [
+          ./hosts/desktop/configuration.nix
+        ];
       };
 
       # host: laptop
@@ -39,32 +41,38 @@
           inherit nix-version;
         };
 
-        modules = [ ./hosts/laptop/configuration.nix ];
+        modules = [
+          ./hosts/laptop/configuration.nix
+        ];
       };
     };
 
     homeConfigurations = {
 
       # user: leonardo@desktop
-      leonardo = home-manager.lib.homeManagerConfiguration {
+      leonardo-desktop = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         extraSpecialArgs = {
           inherit nix-version;
         };
 
-        modules = [ ./users/leonardo/home.nix ];
+        modules = [
+          ./users/leonardo-desktop/home.nix
+        ];
       };
 
       # user: leonardo@laptop
-      leo = home-manager.lib.homeManagerConfiguration {
+      leonardo-laptop = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         extraSpecialArgs = {
           inherit nix-version;
         };
 
-        modules = [ ./users/leo/home.nix ];
+        modules = [
+          ./users/leonardo-laptop/home.nix
+        ];
       };
     };
   };
