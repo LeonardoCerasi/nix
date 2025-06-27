@@ -10,6 +10,7 @@
     gnomeExtensions.appindicator
     gnome-keyring
     gnome-tweaks
+    hydrapaper
   ];
 
   programs.dconf.profiles.user = {
