@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-NOTES_PATH='/home/leonardo/notes'
+export NOTES_PATH=$HOME/notes
 alias not='cd $NOTES_PATH && lgit'
 
 # bachelor-2 / semester-2

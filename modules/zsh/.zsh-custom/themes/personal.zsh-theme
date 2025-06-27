@@ -106,6 +106,14 @@ function get_git_prompt {
     fi
 }
 
+function get_nvim () {
+    if [[ -n $(nvim --version) ]]; then
+        nvim_ver="$(nvim --version | head -1 | awk '{print $2}')"
+
+        echo "%F{$text}with%f %F{$teal} $nvim_ver%f "
+    fi
+}
+
 function get_time_stamp {
     echo "%*"
 }
@@ -125,23 +133,37 @@ function get_space {
 
 # Prompt: # USER@MACHINE: DIRECTORY <BRANCH [STATUS]> --- (TIME_STAMP)
 # > command
+
 function print_prompt_head {
     local left_prompt="\
 %F{$green}$(get_usr_name)%f\
 %F{$sapphire}@%f\
 %F{$green}$(get_pc_name)%f \
-%F{$blue} $NIX_VERSION%f %F{$text}at%f \
+%F{$blue} $NIX_VERSION%f \
+$(get_nvim)\
+%F{$text}at%f \
 %B%F{$maroon}$(get_current_dir)%f%b\
 $(get_git_prompt) "
 
     local right_prompt="%F{$blue}($(get_time_stamp))%f "
     print -rP "$left_prompt$(get_space $left_prompt $right_prompt)$right_prompt"
 }
+
 function get_prompt_indicator {
     if [[ $? -eq 0 ]]; then
         echo "%B%F{$magenta}$cmd_prompt%f%b "
     else
         echo "%B%F{$red}$cmd_prompt %f%b"
+    fi
+}
+
+function precmd() {
+    # Print a newline before the prompt, unless it's the
+    # first prompt in the process.
+    if [ -z "$NEW_LINE_BEFORE_PROMPT" ]; then
+        NEW_LINE_BEFORE_PROMPT=1
+    elif [ "$NEW_LINE_BEFORE_PROMPT" -eq 1 ]; then
+        echo
     fi
 }
 

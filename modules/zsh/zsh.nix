@@ -21,6 +21,11 @@
       lsize = "eza -1laghT --classify --icons --level=1 --time-style '+%d-%m-%Y %H:%M:%S' --total-size";
       lgit = "eza -1laghT --classify --icons --level=2 --time-style '+%d-%m-%Y %H:%M:%S' --git --git-repos --git-ignore --ignore-glob=images";
 
+      # nix aliases
+      nixc = "cd $HOME/nix && lgit";
+      nixbld = "sudo nixos-rebuild switch --flake .#desktop --show-trace --print-build-logs --verbose";
+      homebld = "home-manager switch --flake .#leonardo-desktop --show-trace --print-build-logs --verbose";
+
       # ls aliases
       la = "ls -A";
       l = "ls -CF";
@@ -29,6 +34,10 @@
       q = "exit";
       shut = "shutdown now";
       n = "nvim";
+
+      # customization-neede aliases
+      clear = "unset NEW_LINE_BEFORE_PROMPT && clear";
+      reset = "unset NEW_LINE_BEFORE_PROMPT && reset";
     };
 
     # custom zsh
