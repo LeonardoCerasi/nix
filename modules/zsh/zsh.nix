@@ -23,8 +23,6 @@
 
       # nix aliases
       nixc = "cd $HOME/nix && lgit";
-      nixbld = "sudo nixos-rebuild switch --flake .#desktop --show-trace --print-build-logs --verbose";
-      homebld = "home-manager switch --flake .#leonardo-desktop --show-trace --print-build-logs --verbose";
 
       # ls aliases
       la = "ls -A";
