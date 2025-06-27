@@ -4,7 +4,7 @@
   imports = [
     ./binds.nix
     ./waybar.nix
-    ./hyprlock.nix
+    #./hyprlock.nix
   ];
 
   services.swaync = {
@@ -100,7 +100,6 @@
 
       exec-once = [
         "hyprpaper"
-        "hyprlock && hyprctl hyprpaper wallpaper ', ~/imgs/wallpaper.jpg'"
         "waybar"
         "swaync"
 
@@ -118,7 +117,11 @@
 
     settings = {
       preload = [
-        "~/imgs/wallpaper.jpg"
+        "~/Pictures/wallpaper.jpg"
+      ];
+
+      wallpaper = [
+        "eDP-1,~/Pictures/wallpaper.jpg"
       ];
     };
   };

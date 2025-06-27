@@ -2,7 +2,7 @@
 
 {
   programs.hyprlock = {
-    enable = true;
+    enable = false;
 
 
     extraConfig = ''
@@ -10,7 +10,7 @@
 background {
     monitor =
     #path = screenshot
-    path = ~/imgs/lock.jpg
+    path = ~/Pictures/lock.jpg
     #color = $background
     blur_passes = 1
     contrast = 1
