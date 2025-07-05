@@ -38,6 +38,15 @@ ls.add_snippets(nil, {
 			text({"}", "\\end{equation}"})
 		}),
 		snip({
+			trig = "ueq",
+			namr = "equation*",
+			dscr = "Equation* environment",
+		}, {
+			text({"\\begin{equation*}", "\t"}),
+			insert(1, ""),
+			text({"", "\\end{equation*}"})
+		}),
+		snip({
 			trig = "definition",
 			namr = "definition",
 			dscr = "Definition environment",
