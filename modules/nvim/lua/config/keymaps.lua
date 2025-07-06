@@ -61,10 +61,10 @@ vim.keymap.set('n', '<leader>b', '<cmd>enew<CR>', { desc = 'New [B]uffer' })
 -- end, { desc = 'buffer close' })
 --]
 
--- NOTE: nvim-tree
+-- NOTE: neo-tree
 
 -- Toggle side file menu
-vim.keymap.set('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', { desc = 'nvimtree toggle window' })
+vim.keymap.set('n', '<C-n>', '<cmd>Neotree toggle<CR>', { desc = 'neo-tree toggle window' })
 
 -- NOTE: todo-comments
 

@@ -4,11 +4,12 @@ vim.g.maplocalleader = ' '
 require 'plugins.nvim-treesitter'
 
 require 'plugins.catppuccin'
-require 'plugins.nvim-tree'
 require 'plugins.gitsigns'
 require 'plugins.lualine'
 require 'plugins.todo-comments'
 require 'plugins.which-key'
+require 'plugins.statuscol'
+require 'plugins.neo-tree'
 
 require 'plugins.nvim-cmp'
 require 'plugins.lsp'
