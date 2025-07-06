@@ -10,6 +10,8 @@ require 'plugins.todo-comments'
 require 'plugins.which-key'
 require 'plugins.statuscol'
 require 'plugins.neo-tree'
+require 'plugins.barbar'
+require 'plugins.transparent'
 
 require 'plugins.nvim-cmp'
 require 'plugins.lsp'
