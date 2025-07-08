@@ -16,6 +16,7 @@ in
     # <--- modules --->
     ../../modules/browser/librewolf.nix
     ../../modules/wm/hypr/conf.nix
+    ../../modules/gammarelay.nix
   ];
 
   home.username = usrname;
