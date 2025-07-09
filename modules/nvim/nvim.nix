@@ -53,9 +53,6 @@
       pkgs.vimPlugins.friendly-snippets
       pkgs.vimPlugins.cmp_luasnip
 
-      pkgs.vimPlugins.statuscol-nvim
-      pkgs.vimPlugins.neo-tree-nvim
-      pkgs.vimPlugins.nui-nvim
       pkgs.vimPlugins.barbar-nvim
       pkgs.vimPlugins.transparent-nvim
     ];
