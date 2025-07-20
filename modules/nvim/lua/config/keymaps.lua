@@ -39,11 +39,16 @@ vim.keymap.set('n', '<S-k>', '10k', { desc = 'Scroll 10 lines upward' })
 vim.keymap.set('n', '<S-h>', '10h', { desc = 'Move 10 characters on the left' })
 vim.keymap.set('n', '<S-l>', '10l', { desc = 'Move 10 characters on the right' })
 
--- copy / paste
+vim.keymap.set('v', '<S-j>', '10j', { desc = 'Scroll 10 lines downward' })
+vim.keymap.set('v', '<S-k>', '10k', { desc = 'Scroll 10 lines upward' })
+vim.keymap.set('v', '<S-h>', '10h', { desc = 'Move 10 characters on the left' })
+vim.keymap.set('v', '<S-l>', '10l', { desc = 'Move 10 characters on the right' })
+
+-- NOTE: copy / paste
 vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = 'file save' })
 vim.keymap.set('n', '<C-c>', '<cmd>%y+<CR>', { desc = 'file copy whole' })
 
--- buffers
+-- NOTE: buffers
 vim.keymap.set('n', '<leader>v', '<cmd>:vs<CR>', { desc = '[V]ertical split' })
 
 -- NOTE: barbar
@@ -52,7 +57,7 @@ vim.keymap.set('n', '<leader>c', '<cmd>BufferClose<CR>', { desc = '[C]lose Buffe
 vim.keymap.set('n', '<Tab>', '<cmd>BufferNext<CR>', { desc = 'Next Buffer' })
 vim.keymap.set('n', '<S-Tab>', '<cmd>BufferPrevious<CR>', { desc = 'Previous buffer' })
 
--- NOTE: neo-tree
+-- NOTE: tree
 
 -- Toggle side file menu
 vim.keymap.set('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', { desc = 'nvimtree toggle window' })
@@ -68,6 +73,8 @@ vim.keymap.set("n", "[t", function()
 end, { desc = "Previous [T]odo comment" })
 
 vim.keymap.set('n', '<leader>t', '<cmd>TodoLocList<CR>', { desc = "Show all [T]odo comments in project" })
+
+-- NOTE: remaps
 
 -- NOTE: custom
 

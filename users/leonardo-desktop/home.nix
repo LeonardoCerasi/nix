@@ -13,6 +13,7 @@ in
       ../../modules/browser/firefox/firefox.nix
       ../../modules/browser/vivaldi.nix
       ../../modules/libreoffice.nix
+      ../../modules/vlc.nix
   ];
   home.username = usrname;
   home.homeDirectory = homefld;

@@ -10,6 +10,7 @@ in
       # <--- MODULES --->
       ../modules/wm/hypr/hyprland.nix
       ../modules/gnupg.nix
+      ../modules/keyd.nix
     ];
 
    # nix version
