@@ -18,6 +18,7 @@
     shellAliases = {
       # eza aliases
       ll = "eza -1laghT --classify --icons --level=1 --time-style '+%d-%m-%Y %H:%M:%S'";
+      ltree = "eza -1laghT --classify --icons --level=2 --time-style '+%d-%m-%Y %H:%M:%S'";
       lsize = "eza -1laghT --classify --icons --level=1 --time-style '+%d-%m-%Y %H:%M:%S' --total-size";
       lgit = "eza -1laghT --classify --icons --level=2 --time-style '+%d-%m-%Y %H:%M:%S' --git --git-repos --git-ignore --ignore-glob=images";
 
@@ -28,12 +29,15 @@
       la = "ls -A";
       l = "ls -CF";
 
+      # yazi aliases
+      y = "yazi";
+
       # other aliases
       q = "exit";
       shut = "shutdown now";
       n = "nvim";
 
-      # customization-neede aliases
+      # customization-needed aliases
       clear = "unset NEW_LINE_BEFORE_PROMPT && clear";
       reset = "unset NEW_LINE_BEFORE_PROMPT && reset";
     };
