@@ -5,13 +5,7 @@ let
   keymap = "it2";
 in
 {
-  imports =
-    [
-      # <--- MODULES --->
-      ../modules/wm/hypr/hyprland.nix
-      ../modules/gnupg.nix
-      ../modules/keyd.nix
-    ];
+  imports = [ ../modules/sys ];
 
    # nix version
   system.stateVersion = nix-version;

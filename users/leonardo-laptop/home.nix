@@ -3,22 +3,23 @@
 let
   usrname = "leonardo";
   homefld = "/home/leonardo/";
-in
-{
-  imports =
-  [
-    ../default.nix
 
-    # <--- local conf --->
+  def_conf = [ ../default.nix ];
+  loc_modules = [
     ./fonts.nix
     ./kitty.nix
-
-    # <--- modules --->
-    ../../modules/browser/librewolf.nix
-    ../../modules/wm/hypr/conf.nix
-    ../../modules/gammarelay.nix
   ];
-
+  usr_modules = [
+    ../../modules/usr/browser/librewolf.nix
+    ../../modules/usr/gammarelay.nix
+    ../../modules/usr/yazi.nix
+  ];
+  sys_modules = [
+    ../../modules/sys/wm/hypr/conf.nix
+  ];
+in
+{
+  imports = def_conf ++ loc_modules ++ usr_modules ++ sys_modules;
   home.username = usrname;
   home.homeDirectory = homefld;
 }

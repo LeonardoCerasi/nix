@@ -1,16 +1,7 @@
 { pkgs, nix-version, ... }:
 
 {
-  imports =
-    [
-      # <--- modules --->
-      ../modules/nvim/nvim.nix
-      ../modules/zsh/zsh.nix
-      ../modules/kitty/kitty.nix
-      ../modules/latex.nix
-      ../modules/comms.nix
-      ../modules/git.nix
-  ];
+  imports = [ ../modules/usr/default ];
 
   home.stateVersion = nix-version;
   programs.home-manager.enable = true;

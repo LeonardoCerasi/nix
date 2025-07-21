@@ -5,23 +5,25 @@ let
   homefld = "/home/leonardo";
   fullname = "Leonardo Cerasi";
   hostname = "laptop";
+
+  def_conf = [ ../default.nix ];
+  hard_modules = [
+    ./hardware/hardware-configuration.nix
+    ./hardware/nvidia.nix
+    ./hardware/audio.nix
+  ];
+  soft_modules = [
+    ./software/bootloader.nix
+    ./software/dev.nix
+    ./software/locale.nix
+    ./software/network.nix
+  ];
+  sys_modules = [
+    ../../modules/sys/wm/hypr/hyprland.nix
+  ];
 in
 {
-  imports =
-    [
-      ../default.nix
-
-      # <--- HARDWARE --->
-      ./hardware/hardware-configuration.nix
-      ./hardware/nvidia.nix
-      ./hardware/audio.nix
-
-      # <--- SOFTWARE --->
-      ./software/bootloader.nix
-      ./software/dev.nix
-      ./software/locale.nix
-      ./software/network.nix
-    ];
+  imports = def_conf ++ hard_modules ++ soft_modules ++ sys_modules;
 
   # user account
   users.users.${usrname} = {
