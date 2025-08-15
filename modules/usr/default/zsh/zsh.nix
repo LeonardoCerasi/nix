@@ -29,6 +29,9 @@
       la = "ls -A";
       l = "ls -CF";
 
+      # clear aliases
+      cl = "clear";
+
       # yazi aliases
       y = "yazi";
 
