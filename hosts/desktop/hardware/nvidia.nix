@@ -1,7 +1,10 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 
 {
-  # NVIDIA
+  environment.systemPackages = with pkgs; [
+    cudatoolkit
+  ];
+  
   hardware.graphics = {
     enable = true;
   };
@@ -24,4 +27,6 @@
       nvidiaBusId = "PCI:11:0:0";
     };
   };
+
+  nixpkgs.config.cudaSupport = true;
 }

@@ -11,6 +11,7 @@
     gnome-keyring
     gnome-tweaks
     hydrapaper
+    gdm-settings
   ];
 
   programs.dconf.profiles.user = {

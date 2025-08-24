@@ -11,6 +11,7 @@ let
     ../../modules/usr/libreoffice.nix
     ../../modules/usr/vlc.nix
     ../../modules/usr/music.nix
+    ../../modules/usr/kiwix.nix
   ];
   sys_modules = [
     ../../modules/sys/wm/gnome/theme.nix

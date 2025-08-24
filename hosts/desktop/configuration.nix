@@ -22,6 +22,7 @@ let
   ];
   sys_modules = [
     ../../modules/sys/wm/gnome/x11.nix
+    ../../modules/sys/ollama.nix
   ];
 in
 {

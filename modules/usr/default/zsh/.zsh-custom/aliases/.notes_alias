@@ -1,17 +1,27 @@
 #!/usr/bin/env zsh
 
 export NOTES_PATH=$HOME/notes
+export BACHELOR=$NOTES_PATH/bachelor
+export MASTER=$NOTES_PATH/master
+export THESES=$NOTES_PATH/theses
+export PERSONAL=$NOTES_PATH/personal
+
 alias not='cd $NOTES_PATH && lgit'
 
 # bachelor-2 / semester-2
-alias elett='cd $NOTES_PATH/bachelor-2/semester-2/elettromagnetismo && lgit'
+alias elett='cd $BACHELOR/bachelor-2/semester-2/elettromagnetismo && lgit'
 
 # bachelor-3 / semester-1
-alias geogr='cd $NOTES_PATH/bachelor-3/semester-1/geometria-e-gruppi && lgit'
-alias nucl='cd $NOTES_PATH/bachelor-3/semester-1/nucleare-e-subnucleare && lgit'
-alias relg='cd $NOTES_PATH/bachelor-3/semester-1/relativita-generale && lgit'
-alias quant='cd $NOTES_PATH/bachelor-3/semester-1/fisica-quantistica && lgit'
+alias geogr='cd $BACHELOR/bachelor-3/semester-1/geometria-e-gruppi && lgit'
+alias nucl='cd $BACHELOR/bachelor-3/semester-1/nucleare-e-subnucleare && lgit'
+alias relg='cd $BACHELOR/bachelor-3/semester-1/relativita-generale && lgit'
+alias quant='cd $BACHELOR/bachelor-3/semester-1/fisica-quantistica && lgit'
 
 # bachelor-3 / semester-2
-alias teor='cd $NOTES_PATH/bachelor-3/semester-2/teorica && lgit'
-alias stru='cd $NOTES_PATH/bachelor-3/semester-2/struttura && lgit'
+alias teor='cd $BACHELOR/bachelor-3/semester-2/teorica && lgit'
+alias stru='cd $BACHELOR/bachelor-3/semester-2/struttura && lgit'
+
+# thesis
+alias thes='cd $THESES/bachelor && lgit'
+
+
