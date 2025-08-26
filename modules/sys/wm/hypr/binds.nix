@@ -4,6 +4,7 @@ let
   terminal = "kitty";
   menu = "wofi --style $HOME/.config/hypr/wofi/style_mocha.css --show drun";
   browser = "librewolf";
+  comms = "telegram-desktop";
 
   main = "SUPER";
 in
@@ -18,7 +19,8 @@ in
       "${main} SHIFT, E, exit,"
       "${main} SHIFT, Q, killactive"
       "${main}, SPACE, exec, ${menu}"
-      "${main}, W, exec, ${browser}"
+      "${main}, F, exec, ${browser}"
+      "${main}, T, exec, ${comms}"
 
       # "${main}, M, exec, /home/leonardo/bin/dashboard.sh"
 

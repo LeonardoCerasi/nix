@@ -7,11 +7,6 @@
     #./hyprlock.nix
   ];
 
-  services.swaync = {
-    enable = true;
-  };
-
-
   home.file.".config/hypr/wofi".source = ./wofi;
   home.file.".config/hypr/wofi".recursive = true;
 
@@ -101,7 +96,6 @@
       exec-once = [
         "hyprpaper"
         "waybar"
-        "swaync"
 
         # "eww daemon"
         # "eww open topbar"
