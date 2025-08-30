@@ -19,6 +19,7 @@ let
     ./software/locale.nix
     ./software/network.nix
     # ./software/virtualization.nix
+    ./software/print.nix
   ];
   sys_modules = [
     ../../modules/sys/wm/gnome/x11.nix

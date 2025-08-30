@@ -29,9 +29,6 @@ in
   time.timeZone = timezone;
   console.keyMap = keymap;
 
-  # CUPS
-  services.printing.enable = true;
-
   # <--- PACKAGES --->
 
   nixpkgs.config.allowUnfree = true;
@@ -56,6 +53,7 @@ in
   environment.variables = {
     _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=lcd";
     NIX_VERSION = "${nix-version}";
+    MANPAGER = "nvim +Man!";
   };
 
   # remove ssh-askpass popup for git

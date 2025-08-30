@@ -17,7 +17,6 @@
     insync
     insync-nautilus
     nautilus
-    spotify
     proton-pass
   ];
 }
