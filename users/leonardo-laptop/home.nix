@@ -13,6 +13,7 @@ let
     ../../modules/usr/browser/librewolf.nix
     ../../modules/usr/gammarelay.nix
     ../../modules/usr/yazi.nix
+    ../../modules/usr/music.nix
   ];
   sys_modules = [
     ../../modules/sys/wm/hypr/conf.nix
