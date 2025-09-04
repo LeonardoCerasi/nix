@@ -101,6 +101,15 @@ ls.add_snippets(nil, {
 			text({"", "\\end{example}"})
 		}),
 		snip({
+			trig = "observation",
+			namr = "observation",
+			dscr = "Observation environment",
+		}, {
+			text({"\\begin{observation}", "\t"}),
+			insert(1, ""),
+			text({"", "\\end{observation}"})
+		}),
+		snip({
 			trig = "split",
 			namr = "split",
 			dscr = "Split environment",
